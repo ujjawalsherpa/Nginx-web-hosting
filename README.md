@@ -1,12 +1,14 @@
-Here is a corrected and professional version of your README file for the GitHub repository, including necessary changes and formatting:
-
----
-
 # Hosting a Static Website with Nginx
 
 This guide provides basic configuration steps for using Nginx to host your static website. The website used in this example is a dummy project from [Free CSS](https://www.free-css.com/), built using HTML and CSS.
 
-## Step 1: Install Nginx on Linux
+## Step 1: Create an AWS EC2 Instance
+
+1. **Launch an instance**: Allow HTTP and HTTPS traffic in the Network settings.
+2. **Select the instance**.
+3. **Connect to the EC2 instance** through an online terminal or SSH.
+
+## Step 2: Install Nginx on Linux
 
 The following instructions are for RHEL. Adjust the commands according to your Linux distribution.
 
@@ -26,7 +28,7 @@ The following instructions are for RHEL. Adjust the commands according to your L
    sudo systemctl enable nginx
    ```
 
-## Step 2: Configure Nginx to Host Your Website
+## Step 3: Configure Nginx to Host Your Website
 
 1. Navigate to the Nginx configuration directory:
    ```sh
@@ -58,7 +60,7 @@ http {
         server_name _;
 
         root /location/to/your/website/files;
-        index index.html index.htm;  # Ensure the index file is specified
+        index index.html index.htm;
 
         location / {
             try_files $uri $uri/ =404;
@@ -104,3 +106,5 @@ sudo nginx -s reload
 ---
 
 # HAVE A GOOD DAY.
+
+---
